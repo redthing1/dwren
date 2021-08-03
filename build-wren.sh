@@ -6,7 +6,9 @@ DIR=$(dirname "$0")
 cd "$DIR"
 if [ ! -f libwren.a ] || [ "$1" == "-f" ]; then
     echo "Building C Library"
+    git clone https://github.com/wren-lang/wren.git wren040
     cd wren040
+    git checkout 0.4.0
     pushd .
     cd projects/make
     make -j8
