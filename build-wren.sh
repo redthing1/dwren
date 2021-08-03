@@ -4,14 +4,15 @@
 
 DIR=$(dirname "$0")
 cd "$DIR"
-if [ ! -f libsoundpipe.a ] || [ "$1" == "-f" ]; then
+if [ ! -f libwren.a ] || [ "$1" == "-f" ]; then
     echo "Building C Library"
-    rm -rf soundpipe-master
-    git clone https://github.com/xdrie/soundpipe.git soundpipe-master
-    cd soundpipe-master
+    cd wren040
+    pushd .
+    cd projects/make
     make -j8
+    popd    
     pwd
-    cp libsoundpipe.a ../libsoundpipe.a
+    cp lib/libwren.a ../libwren.a
     cd ..
-    rm -rf soundpipe-master
+    rm -rf wren040
 fi
