@@ -1,5 +1,5 @@
 name "dwren"
-description "d wren"
+description "bindings to wren for dlang"
 authors "xdrie"
 copyright "Copyright © 2021, xdrie"
 license "apache-2.0"
