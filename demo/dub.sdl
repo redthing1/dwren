@@ -1,0 +1,7 @@
+name "demo"
+description "A minimal D application."
+authors "xdrie"
+copyright "Copyright © 2021, xdrie"
+license "proprietary"
+
+dependency "dwren" path=".."
