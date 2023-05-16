@@ -87,7 +87,7 @@ alias WrenLoadModuleFn = WrenLoadModuleResult function (WrenVM* vm, const(char)*
 
 // Returns a pointer to a foreign method on [className] in [module] with
 // [signature].
-alias WrenBindForeignMethodFn = void function (WrenVM* vm, const(char)* module_, const(char)* className, bool isStatic, const(char)* signature) function (
+alias WrenBindForeignMethodFn = WrenForeignMethodFn function (
     WrenVM* vm,
     const(char)* module_,
     const(char)* className,
