@@ -1,8 +1,12 @@
 name "dwren"
 description "bindings to wren for dlang"
-authors "xdrie"
-copyright "Copyright © 2021, xdrie"
+authors "redthing1"
+copyright "Copyright © 2023, redthing1"
 license "apache-2.0"
-targetType "sourceLibrary"
-lflags "$PACKAGE_DIR/libwren.a"
-preGenerateCommands "bash $PACKAGE_DIR/build-wren.sh"
+targetType "library"
+
+configuration "default" {
+    # on posix platforms, link to staticlibrary
+    lflags "-L$PACKAGE_DIR" "$PACKAGE_DIR/libwren.a" platform="posix"
+    preGenerateCommands "bash $PACKAGE_DIR/build-clib.sh" platform="posix"
+}
