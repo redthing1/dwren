@@ -1,5 +1,7 @@
 module wren;
 
+import core.stdc.config;
+
 extern (C):
 
 // The Wren semantic version number components.
@@ -106,6 +108,10 @@ enum WrenErrorType
     // One entry of a runtime error's stack trace.
     WREN_ERROR_STACK_TRACE = 2
 }
+
+alias WREN_ERROR_COMPILE = WrenErrorType.WREN_ERROR_COMPILE;
+alias WREN_ERROR_RUNTIME = WrenErrorType.WREN_ERROR_RUNTIME;
+alias WREN_ERROR_STACK_TRACE = WrenErrorType.WREN_ERROR_STACK_TRACE;
 
 // Reports an error to the user.
 //
@@ -234,6 +240,7 @@ struct WrenConfiguration
     // collection.
     //
     // If zero, defaults to 10MB.
+    alias size_t = c_ulong;
     size_t initialHeapSize;
 
     // After a collection occurs, the threshold for the next collection is
@@ -275,6 +282,10 @@ enum WrenInterpretResult
     WREN_RESULT_RUNTIME_ERROR = 2
 }
 
+alias WREN_RESULT_SUCCESS = WrenInterpretResult.WREN_RESULT_SUCCESS;
+alias WREN_RESULT_COMPILE_ERROR = WrenInterpretResult.WREN_RESULT_COMPILE_ERROR;
+alias WREN_RESULT_RUNTIME_ERROR = WrenInterpretResult.WREN_RESULT_RUNTIME_ERROR;
+
 // The type of an object stored in a slot.
 //
 // This is not necessarily the object's *class*, but instead its low level
@@ -292,6 +303,15 @@ enum WrenType
     // The object is of a type that isn't accessible by the C API.
     WREN_TYPE_UNKNOWN = 7
 }
+
+alias WREN_TYPE_BOOL = WrenType.WREN_TYPE_BOOL;
+alias WREN_TYPE_NUM = WrenType.WREN_TYPE_NUM;
+alias WREN_TYPE_FOREIGN = WrenType.WREN_TYPE_FOREIGN;
+alias WREN_TYPE_LIST = WrenType.WREN_TYPE_LIST;
+alias WREN_TYPE_MAP = WrenType.WREN_TYPE_MAP;
+alias WREN_TYPE_NULL = WrenType.WREN_TYPE_NULL;
+alias WREN_TYPE_STRING = WrenType.WREN_TYPE_STRING;
+alias WREN_TYPE_UNKNOWN = WrenType.WREN_TYPE_UNKNOWN;
 
 // Get the current wren version number.
 //
