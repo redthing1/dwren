@@ -7,8 +7,8 @@
 
 set -e
 
-HOST="zased"
-LIB_NAME="zstd"
+HOST="dwren"
+LIB_NAME="wren"
 SOURCETREE_URL="https://github.com/wren-lang/wren"
 SOURCETREE_DIR="cwren_source"
 SOURCETREE_BRANCH="main"
