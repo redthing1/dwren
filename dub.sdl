@@ -8,5 +8,7 @@ targetType "library"
 configuration "default" {
     # on posix platforms, link to staticlibrary
     lflags "-L$PACKAGE_DIR" "$PACKAGE_DIR/libwren.a" platform="posix"
-    preGenerateCommands "bash $PACKAGE_DIR/build-clib.sh" platform="posix"
+    # preGenerateCommands "bash $PACKAGE_DIR/build-clib.sh" platform="posix"
+    preGenerateCommands "bash $PACKAGE_DIR/build-clib.sh" platform="linux"
+    preGenerateCommands "bash $PACKAGE_DIR/build-clib_osx.sh" platform="osx"
 }
